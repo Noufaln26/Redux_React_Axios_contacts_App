@@ -1,23 +1,38 @@
-import React from 'react'
-import Modal from 'react-bootstrap/Modal';
+import React, { useState } from "react";
+import { Modal, Button } from "react-bootstrap";
 
-function ConfirmModal() {
+function ConfirmModal({ show, setShow, subject }) {
+  const handleClose = () => setShow(false);
+  
+
   return (
-    <Modal.Dialog>
-  <Modal.Header closeButton>
-    <Modal.Title>Modal title</Modal.Title>
-  </Modal.Header>
-
-  <Modal.Body>
-    <p>Modal body text goes here.</p>
-  </Modal.Body>
-
-  <Modal.Footer>
-    <Button variant="secondary">Close</Button>
-    <Button variant="primary">Save changes</Button>
-  </Modal.Footer>
-</Modal.Dialog>
-  )
+    <>
+      <Modal
+        show={show}
+        onHide={() => setShow(false)}
+        
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-custom-modal-styling-title">
+            {subject}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            Do you want to edit the contact ?
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
 }
 
-export default ConfirmModal
+export default ConfirmModal;

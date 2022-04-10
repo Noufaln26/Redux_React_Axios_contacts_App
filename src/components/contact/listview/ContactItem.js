@@ -1,8 +1,17 @@
-import React from "react";
-import Image from "react-bootstrap/Image";
+import React,{useState} from "react";
+import {Image} from "react-bootstrap";
+import ConfirmModal from "../../ConfirmModal";
 
 function ContactItem({ datum}) {
+  const [show, setShow] = useState(false);
+
+  const handleClick =()=>{
+    setShow(true)
+  }
+
+
   return (
+    <>
     <tr key={datum.login.uuid}>
       
       <td>
@@ -13,14 +22,17 @@ function ContactItem({ datum}) {
       <td>{datum.email}</td>
       <td>{datum.gender}</td>
       <td>
-        <a href="#"> <span className="material-icons text-primary">
+        <a href="#" > <span className="material-icons text-primary">
           edit</span>
         </a>
-        <a href="#"><span className="material-icons text-danger">
+        <a href="#"><span className="material-icons text-danger" onClick={handleClick}>
           remove_circle</span>
         </a>
       </td>
+      
     </tr>
+    <div>{show && <ConfirmModal show={show} setShow={setShow} subject="Do you want to delete this contact?"/>}</div>
+    </>
   );
 }
 
