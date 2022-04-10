@@ -1,14 +1,12 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import { mockjson } from "../../../assets/Mockjson";
+
 
 import ContactItem from "./ContactItem";
 
 
-function Contact() {
-  const data = mockjson.results;
-  //console.log(data)
-  //console.log(data[0].login.uuid)
+function Contact({data}) {
+  
 
 
   return (
@@ -25,7 +23,7 @@ function Contact() {
         <tbody>
           {data.map((datum,index) => (
           
-            <ContactItem datum={datum} index={index}/>
+            <ContactItem datum={datum} key={index}/>
           ))}
         </tbody>
       </Table>

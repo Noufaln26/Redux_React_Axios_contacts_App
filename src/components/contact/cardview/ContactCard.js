@@ -4,8 +4,8 @@ import { mockjson } from "../../../assets/Mockjson";
 import { Card, Button, Row, Container, Col } from "react-bootstrap";
 import ContactCardItem from "./ContactCardItem";
 
-function ContactCard() {
-  const data = mockjson.results;
+function ContactCard({data}) {
+ 
   return (
     <>
       <Container
