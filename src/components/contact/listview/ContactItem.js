@@ -13,6 +13,7 @@ function ContactItem({datum,index}) {
               </td>
               <td>{datum.name.first}</td>
               <td>{datum.name.last}</td>
+              <td>{datum.email}</td>
             </tr>
   )
 }
