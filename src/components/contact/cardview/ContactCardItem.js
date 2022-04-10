@@ -9,11 +9,12 @@ function ContactCardItem({datum}) {
         className="rounded-circle"
         src={datum.picture.large}
       />
-      <Card.Body>
-        <Card.Title>{datum.name.first}</Card.Title>
+      <Card.Body className="text-center">
+        <Card.Title >{datum.name.first+" " +datum.name.last}</Card.Title>
         <Card.Text>
-          {datum.name.first}
-          {datum.name.last}
+          {datum.email}
+          
+          
         </Card.Text>
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>

@@ -29,9 +29,10 @@ function App() {
     }
   };
   useEffect(() => {
+    const url = "https://randomuser.me/api/?results=25";
     const getItems = async () => {
-      const result = await axios("https://randomuser.me/api/?results=25");
-      setData((old) => [...old, ...result.data.results]);
+      const result = await axios(url);
+      setData((oldData) => [...oldData, ...result.data.results]);
       setIsLoading(false);
     };
     window.addEventListener("scroll", handleScroll);
@@ -42,6 +43,7 @@ function App() {
     setDisplayToggle(!displayToggle);
   };
   const columns = data[0] && Object.keys(data[0]);
+  const unwantedFilters = ["id"];
 
   const customSearch = (rows) => {
     console.log(rows);
@@ -74,8 +76,6 @@ function App() {
             {columns &&
               columns.map((column) => (
                 <label>
-                  {" "}
-                  {column}
                   <input
                     type="checkbox"
                     checked={filterOptions.includes(column)}
@@ -87,7 +87,8 @@ function App() {
                           : [...prev, column]
                       );
                     }}
-                  />
+                  />{" "}
+                  {column}
                 </label>
               ))}
             <Button
