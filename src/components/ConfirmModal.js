@@ -13,8 +13,8 @@ function ConfirmModal({ show, setShow, subject }) {
         
       >
         <Modal.Header closeButton>
-          <Modal.Title id="example-custom-modal-styling-title">
-            {subject}
+          <Modal.Title id="example-custom-modal-styling-title ">
+            <h1 className="text-danger">Delete</h1>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

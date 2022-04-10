@@ -12,6 +12,7 @@ function ContactItem({ datum}) {
 
   return (
     <>
+    <div>{show && <ConfirmModal show={show} setShow={setShow} subject="Do you want to delete this contact?"/>}</div>
     <tr key={datum.login.uuid}>
       
       <td>
@@ -31,7 +32,7 @@ function ContactItem({ datum}) {
       </td>
       
     </tr>
-    <div>{show && <ConfirmModal show={show} setShow={setShow} subject="Do you want to delete this contact?"/>}</div>
+    
     </>
   );
 }

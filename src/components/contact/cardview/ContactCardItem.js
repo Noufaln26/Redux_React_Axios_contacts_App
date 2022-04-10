@@ -1,8 +1,19 @@
-import React from "react";
+import React,{useState} from "react";
 import { Card, Button} from "react-bootstrap";
+import ConfirmModal from "../../ConfirmModal";
+
+
 
 function ContactCardItem({datum}) {
+  const [show, setShow] = useState(false);
+
+  const handleClick =()=>{
+    setShow(true)
+  }
+
   return (
+    <>
+     <div>{show && <ConfirmModal show={show} setShow={setShow} subject="Do you want to delete this contact?"/>}</div>
     <Card style={{ width: "18rem" }} className="shadow mb-5">
       <Card.Img
         variant="top"
@@ -17,10 +28,11 @@ function ContactCardItem({datum}) {
         <Card.Text>
           {datum.gender}
         </Card.Text>
-        <Button variant="primary m-2">Edit</Button>
-        <Button variant="danger">Delete</Button>
+        <Button variant="primary m-2" >Edit</Button>
+        <Button variant="danger" onClick={handleClick}>Delete</Button>
       </Card.Body>
     </Card>
+    </>
   );
 }
 
