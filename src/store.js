@@ -9,6 +9,27 @@ export const addContact = (contact) => {
   };
 };
 
+export const fetchContact= () =>{
+    return (dispatch) => {
+        return axios.get("https://randomuser.me/api/?results=2")
+            .then(response => {
+                return response.data
+            })
+            .then(data => {
+                dispatch({
+                    type: ADD_FETCHED_DATA,
+                    payload: data
+                })
+            })
+            .catch(error => {
+                throw (error);
+            });
+    };
+}
+
+
+
+
 const initialState = { contacts: ["noufal"], counter: 0 };
 
 const contactReducer = (state = initialState, action) => {
