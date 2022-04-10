@@ -1,16 +1,27 @@
-
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-const initialState={"name":"noufal"}
+//actions
+export const addContact = (contact) => {
+  return {
+    type: "CREATE_CONTACT",
+    payload: contact,
+  };
+};
 
-const contactReducer =(state=initialState,action) =>{
-    switch(action.type){
-        default:
-            return state
-    }
-}
+const initialState = { contacts: ["noufal"], counter: 0 };
 
-const store = createStore(contactReducer,composeWithDevTools())
+const contactReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "CREATE_CONTACT":
+      return {
+        contacts: [action.payload, ...state.contacts],
+      };
+    default:
+      return state;
+  }
+};
 
-export default store
+const store = createStore(contactReducer, composeWithDevTools());
+
+export default store;

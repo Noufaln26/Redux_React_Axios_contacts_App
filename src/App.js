@@ -22,7 +22,7 @@ function App() {
       window.innerHeight + e.target.documentElement.scrollTop + 1 >=
       e.target.documentElement.scrollHeight
     ) {
-      console.log("at the bottom");
+      console.log("Adding more data to the view")
       setIsLoading(true);
       setPage(page + 1);
     }
@@ -33,6 +33,7 @@ function App() {
       const result = await axios(url);
       setData((oldData) => [...oldData, ...result.data.results]);
       setIsLoading(false);
+      console.log(result)
     };
     window.addEventListener("scroll", handleScroll);
     getItems();

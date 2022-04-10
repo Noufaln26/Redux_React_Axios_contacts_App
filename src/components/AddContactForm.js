@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addContact } from "../store";
+
 
 function AddContactForm() {
+
+  const dispatch=useDispatch();
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [email, setEmail] = useState("");
@@ -10,7 +15,15 @@ function AddContactForm() {
 
   const createContact = (e) =>{
     e.preventDefault();
-    console.log(name)
+    const new_contact={
+      name:name,
+      gender:gender,
+      email: email,
+      phone:phone,
+      date:date
+      
+    }
+    dispatch(addContact(new_contact))
   }
 
 
