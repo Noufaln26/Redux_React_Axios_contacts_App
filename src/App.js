@@ -5,6 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import LoaderSpinner from "./components/LoaderSpinner";
 import Home from "./components/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AddContactForm from "./components/AddContactForm";
 
 const PAGE_NUMBER = 1;
 
@@ -12,7 +14,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(PAGE_NUMBER);
-  
 
   const handleScroll = (e) => {
     if (
@@ -35,13 +36,14 @@ function App() {
     getItems();
   }, [page]);
 
-  
-
   return (
     <div className="App">
       <NavBar />
-      {isLoading ? <LoaderSpinner /> : <Home data={data} />}
-
+      <Routes>
+        <Route path="/" element= {isLoading ? <LoaderSpinner /> : <Home data={data} />} />
+        <Route path="/addContact" element={<AddContactForm />} />
+      </Routes>
+     
     </div>
   );
 }
