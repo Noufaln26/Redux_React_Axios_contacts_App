@@ -10,7 +10,7 @@ function Home({data}) {
   const [filterOptions, setFilterOptions] = useState([]);
 
   //const columns = data[0] && Object.keys(data[0]);
-  const columns=["gender","name","email"]
+  const columns=["gender","name","email"] //selected filters
 
   const customSearch = (rows) => {
     console.log(rows);
@@ -56,6 +56,7 @@ function Home({data}) {
              
           ))}
          <span className="text-danger">{filterOptions.length} : Applied filters</span> 
+         {/*toggling the card/listview*/}
         <Button
           className="btn float-right btn-success mt-1 "
           type="submit"
@@ -64,7 +65,7 @@ function Home({data}) {
           ChangeView
         </Button>
       </div>
-
+        {/*Conditional rendering*/}
       {displayToggle ? (
         <Contact data={customSearch(data)} />
       ) : (

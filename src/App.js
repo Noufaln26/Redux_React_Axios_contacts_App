@@ -48,6 +48,7 @@ function App() {
   }, [page]);
 
   return (
+    //Adding redux store to all child components
     <Provider store={store}>
     <div className="App">
       <NavBar />

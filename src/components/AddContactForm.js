@@ -25,6 +25,8 @@ function AddContactForm() {
       date:date
       
     }
+    //console.log(new_contact) new contact details from form
+    //Todo : validations
     dispatch(addContact(new_contact))
   }
 
