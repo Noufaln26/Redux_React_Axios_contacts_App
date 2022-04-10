@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NavBar from "./components/NavBar";
+import Contact from "./components/contact/listview/Contact";
+
+import { useState } from "react";
+import { Button } from "react-bootstrap";
+import ContactCard from "./components/contact/cardview/ContactCard";
 
 function App() {
+  const [displayToggle, setDisplayToggle] = useState(true);
+  
+
+  const toggle =(e)=>{
+    setDisplayToggle(!displayToggle)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <div className="container">
+        <Button class="btn btn-success float-right mb-5" type="submit" onClick={toggle}>
+          ChangeView
+        </Button>
+      {displayToggle?<Contact /> : <ContactCard/>}  
+      </div>
     </div>
   );
 }
