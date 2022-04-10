@@ -8,12 +8,17 @@ function AddContactForm() {
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
 
+  const createContact = (e) =>{
+    e.preventDefault();
+    console.log(name)
+  }
+
 
   return (
     <div className="card border-0 shadow m-5">
       <div className="card-header ">Add a contact</div>
       <div className="card-body ">
-        <form>
+        <form onSubmit={(e)=>createContact(e)}>
           <div className="form-group">
             <input
               type="text"
@@ -58,7 +63,7 @@ function AddContactForm() {
               onChange={(e) => setGender(e.target.value)}
             />
           </div>
-          <Button className="bg-success">Submit</Button>
+          <Button className="bg-success" type="submit">Submit</Button>
         </form>
       </div>
     </div>
