@@ -16,6 +16,15 @@ function App() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(PAGE_NUMBER);
 
+  const handleScroll = (e) =>{
+    
+    if (window.innerHeight+ e.target.documentElement.scrollTop+1 >= e.target.documentElement.scrollHeight){
+      console.log("at the bottom")
+      setIsLoading(true);
+      setPage(page+1)
+    }
+   
+  }
   useEffect(() => {
     const getItems = async () => {
       const result = await axios("https://randomuser.me/api/?results=25");
@@ -26,15 +35,7 @@ function App() {
     getItems();
   }, [page]);
 
-  const handleScroll = (e) =>{
-    
-    if (window.innerHeight+ e.target.documentElement.scrollTop+1 >= e.target.documentElement.scrollHeight){
-      console.log("at the bottom")
-      setIsLoading(true);
-    }
-   setPage(page+1)
-  
-  }
+
 
   const toggle = (e) => {
     setDisplayToggle(!displayToggle);
