@@ -13,10 +13,12 @@ function ContactCardItem({datum}) {
         <Card.Title >{datum.name.first+" " +datum.name.last}</Card.Title>
         <Card.Text>
           {datum.email}
-          
-          
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Card.Text>
+          {datum.gender}
+        </Card.Text>
+        <Button variant="primary m-2">Edit</Button>
+        <Button variant="danger">Delete</Button>
       </Card.Body>
     </Card>
   );

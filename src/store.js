@@ -1,5 +1,10 @@
+import axios from "axios";
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { mockjson } from "./assets/Mockjson";
+
+
+
 
 //actions
 export const addContact = (contact) => {
@@ -17,27 +22,32 @@ export const fetchContact= () =>{
             })
             .then(data => {
                 dispatch({
-                    type: ADD_FETCHED_DATA,
-                    payload: data
+                    type: "ADD_FETCHED_DATA",
+                    payload: data.results
                 })
             })
             .catch(error => {
                 throw (error);
             });
     };
-}
+} 
 
 
 
-
-const initialState = { contacts: ["noufal"], counter: 0 };
+const data = mockjson.results;
+const initialState = { data, counter: 0 };
 
 const contactReducer = (state = initialState, action) => {
   switch (action.type) {
     case "CREATE_CONTACT":
       return {
+          ...state,
         contacts: [action.payload, ...state.contacts],
       };
+    case "ADD_FETCHED_DATA":
+        return {
+            contacts: [...action.payload]
+        }
     default:
       return state;
   }

@@ -7,10 +7,10 @@ import { Button, Form, Row } from "react-bootstrap";
 function Home({data}) {
   const [displayToggle, setDisplayToggle] = useState(true);
   const [q, setQ] = useState("");
-  const [filterOptions, setFilterOptions] = useState(["first", "last"]);
+  const [filterOptions, setFilterOptions] = useState([]);
 
   //const columns = data[0] && Object.keys(data[0]);
-  const columns=["gender","name","location","email","phone","nat"]
+  const columns=["gender","name","email"]
 
   const customSearch = (rows) => {
     console.log(rows);
@@ -50,8 +50,12 @@ function Home({data}) {
                 }}
               />{" "}
               {column}
+             
+              
             </label>
+             
           ))}
+         <span className="text-danger">{filterOptions.length} : Applied filters</span> 
         <Button
           className="btn float-right btn-success mt-1 "
           type="submit"

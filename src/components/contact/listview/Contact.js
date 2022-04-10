@@ -14,17 +14,20 @@ function Contact({data}) {
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
-            <th>#</th>
+            
             <th>Profile Pic</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
+            <th>Gender</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((datum,index) => (
-          
-            <ContactItem datum={datum} key={index}/>
+          {data.map((datum) => ( 
+                     
+            <ContactItem datum={datum}/>
+       
           ))}
         </tbody>
       </Table>

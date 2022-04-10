@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addContact } from "../store";
+import shortid from "shortid";
 
 
 function AddContactForm() {
@@ -16,6 +17,7 @@ function AddContactForm() {
   const createContact = (e) =>{
     e.preventDefault();
     const new_contact={
+      id:shortid.generate(),
       name:name,
       gender:gender,
       email: email,
