@@ -20,7 +20,7 @@ function AddContactForm() {
               className="form-control"
               placeholder="Enter Name"
               value={name}
-              onChange={(e) => setName(name)}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -29,7 +29,7 @@ function AddContactForm() {
               className="form-control"
               placeholder="Enter phone number"
               value={phone}
-              onChange={(e) => setPhone(phone)}
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -38,7 +38,7 @@ function AddContactForm() {
               className="form-control"
               placeholder="Enter email"
               value={email}
-              onChange={(e) => setEmail(email)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -46,7 +46,7 @@ function AddContactForm() {
               type="date"
               className="form-control"
               value={date}
-              onChange={(e) => setDate(setDate)}
+              onChange={(e) => setDate(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -55,7 +55,7 @@ function AddContactForm() {
               className="form-control"
               placeholder="gender"
               value={gender}
-              onChange={(e) => setGender(gender)}
+              onChange={(e) => setGender(e.target.value)}
             />
           </div>
           <Button className="bg-success">Submit</Button>
