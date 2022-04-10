@@ -36,7 +36,7 @@ function Home({data}) {
 
         {columns &&
           columns.map((column) => (
-            <label>
+            <label className="px-3 mb-5">
               <input
                 type="checkbox"
                 checked={filterOptions.includes(column)}
@@ -53,7 +53,7 @@ function Home({data}) {
             </label>
           ))}
         <Button
-          className="btn float-right btn-success mb-3 "
+          className="btn float-right btn-success mt-1 "
           type="submit"
           onClick={(e)=>setDisplayToggle(!displayToggle)}
         >
