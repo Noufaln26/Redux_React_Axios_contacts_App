@@ -1,20 +1,12 @@
-import React from "react";
-import { Spinner } from "react-bootstrap";
-function LoaderSpinner() {
+import * as React from "react";
+import Stack from "@mui/material/Stack";
+import CircularProgress from "@mui/material/CircularProgress";
+
+export default function CircularColor() {
   return (
-    <div
-      style={{
-        zIndex: 99,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
-    </div>
+    <Stack sx={{ color: "grey.500" }} spacing={2} direction="row">
+      <CircularProgress color="success" />
+    </Stack>
   );
 }
-
-export default LoaderSpinner;
+r;
